@@ -29,10 +29,9 @@ class Post extends CI_Controller {
 
 				$data['judul'] = $this->input->post('judul');
 				$data['body'] = $this->input->post('body');
-				$data['view'] = 0;
-				$data['comment'] = 0;
 				$data['create_at'] = date("Y-m-d h:i:sa");
 				$data['post_by'] = $this->session->userdata('nama');
+				$data['id_post_by'] = $this->session->userdata('id_user');
 				$data['foto'] = 'uploads/'.$gambar;
 
 				$this->db->insert('posts',$data);

@@ -114,25 +114,44 @@
 				<div>
 					<div class="container">
 						<div class="row">
-							<div class="col-md-4">
-								<div class="header header-success">
-									<!-- Tabs with icons on Card -->
-									<div class="card card-nav-tabs">
-										<div class="col-sm-12 center-cropped img">
-											<h4 style="text-align:center">Judul</h4>
-											<img src="<?php echo base_url();?>assets/img/background1.png" alt="Rounded Image" class="img-rounded img-responsive">
-										</div>
-										<div class="content">
-											<p>Data science, also known as data-driven science, is an interdisciplinary field about scientific methods, processes, and systems to extract knowledge or insights ...</p>
-										</div>
-										<div class="col-md-12 col-md-offset-3 col-sm-12 col-sm-offset-5 center">
-	                      <button class="btn">Read More</button>
-										</div>
-									</div>
 
+							<?php
+								foreach ($data->result() as $row) {
+							?>
+								<div class="col-md-4">
+									<div class="header header-success">
+										<!-- Tabs with icons on Card -->
+										<div class="card card-nav-tabs">
+											<div class="col-sm-12 center-cropped img">
+												<h4 style="text-align:center"><?php echo $row->judul ?></h4>
+												<img src="<?php echo base_url().$row->foto;?>" alt="Gambar Post" class="img-rounded img-responsive">
+											</div>
+											<div class="content">
+												<p>
+													<?php
+														$string = strip_tags($row->body);
+														if (strlen($string) > 100) {
+															// truncate string
+															$stringCut = substr($string, 0, 100);
+															// make sure it ends in a word so assassinate doesn't become ass...
+															$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
+														}
+														echo $string;
+													?>
+												</p>
+											</div>
+											<div class="col-md-12 col-md-offset-3 col-sm-12 col-sm-offset-5 center">
+		                      <a class="btn" href="<?php echo base_url().'read/index/'.$row->id_post;?>">Read More</a>
+											</div>
+										</div>
+
+									</div>
+									<!-- End Tabs with icons on Card -->
 								</div>
-								<!-- End Tabs with icons on Card -->
-							</div>
+
+							<?php
+								}
+							?>
 
 						</div>
 					</div>
