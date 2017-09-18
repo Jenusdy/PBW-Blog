@@ -21,3 +21,4 @@
 
 		<!-- CSS Just for demo purpose, don't include it in your project -->
 		<link href="<?php echo base_url();?>assets/css/demo.css" rel="stylesheet" />
+		<script src="http://cdn.ckeditor.com/4.7.3/full/ckeditor.js"></script>

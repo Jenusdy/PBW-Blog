@@ -49,8 +49,13 @@
 							if(!empty($this->session->userdata('email'))){
 						?>
 								<li>
-									<a rel="tooltip" title="Write a Post" data-placement="bottom" href="#" class="btn btn-white btn-simple btn-just-icon">
+									<a rel="tooltip" title="Write a Post" data-placement="bottom" href="<?php echo base_url();?>post" class="btn btn-white btn-simple btn-just-icon">
 										<i class="fa fa-pencil"></i>
+									</a>
+								</li>
+								<li>
+									<a rel="tooltip" title="Sign Out" data-placement="bottom" href="<?php echo base_url();?>login/sign_out" class="btn btn-white btn-simple btn-just-icon">
+										<i class="fa fa-sign-out"></i>
 									</a>
 								</li>
 

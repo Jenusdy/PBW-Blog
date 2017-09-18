@@ -17,4 +17,10 @@ class Login extends CI_Controller {
     $this->load->model('model_login');
     $this->model_login->getlogin($email,$password);
   }
+
+	public function sign_out(){
+		// $this->load->library('session');
+		$this->session->sess_destroy();
+		redirect('home');
+	}
 }

@@ -1,4 +1,7 @@
   <!--   Core JS Files   -->
+  <script>
+    CKEDITOR.replace('editor1');
+  </script>
   <script src="<?php echo base_url();?>assets/js/jquery.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/material.min.js"></script>
