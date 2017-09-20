@@ -16,6 +16,7 @@ class Post extends CI_Controller {
       $config['max_width']            = '50000';
       $config['max_height']           = '50000';
 
+
       $this->load->library('upload', $config);
 
       if ( ! $this->upload->do_upload('foto')){
@@ -29,9 +30,10 @@ class Post extends CI_Controller {
 
 				$data['judul'] = $this->input->post('judul');
 				$data['body'] = $this->input->post('body');
+				$data['kategori'] = $this->input->post('kategori');
 				$data['create_at'] = date("Y-m-d h:i:sa");
 				$data['post_by'] = $this->session->userdata('nama');
-				$data['id_post_by'] = $this->session->userdata('id_user');
+				$data['id_user'] = $this->session->userdata('id_user');
 				$data['foto'] = 'uploads/'.$gambar;
 
 				$this->db->insert('posts',$data);

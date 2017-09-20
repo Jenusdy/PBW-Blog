@@ -98,31 +98,32 @@
 						<div class="title">
                 <h3><small> Pick your categories </small></h3>
             </div>
-            <div class="row center">
-                <div class="col-md-8 col-md-offset-3">
-                    <button class="btn">All</button>
-                    <button class="btn btn-primary">Python</button>
-                    <button class="btn btn-info">R</button>
-                    <button class="btn btn-success">SPSS</button>
-                    <button class="btn btn-warning">EXCEL</button>
-                    <button class="btn btn-danger">MySQL</button>
+                <div class="col-md-12">
+                    <button class="btn btn-all" style="background-color:rgb(216, 244, 12)">All</button>
+                    <button class="btn btn-python" style="background-color:rgb(252, 29, 203)">Python</button>
+                    <button class="btn btn-r" style="background-color:rgb(118, 207, 125)">R</button>
+                    <button class="btn btn-java" style="background-color:rgb(30, 134, 224)">Java</button>
+                    <button class="btn btn-c-plus-plus" style="background-color:rgb(201, 185, 89)">C++</button>
+                    <button class="btn btn-spss" style="background-color:rgb(215, 16, 205)">SPSS</button>
+										<button class="btn btn-mysql" style="background-color:rgb(100, 198, 204)">MySQL</button>
+										<button class="btn btn-blog" style="background-color:rgb(210, 43, 188)">Blog</button>
+										<button class="btn btn-other" style="background-color:rgb(21, 64, 180)">Other</button>
                 </div>
-            </div>
+
 					</div>
 				</div>
 
-				<div>
 					<div class="container">
 						<div class="row">
 
 							<?php
 								foreach ($data->result() as $row) {
 							?>
-								<div class="col-md-4">
+								<div class="col-md-4 <?php echo "all"?> <?php echo $row->kategori; ?>">
 									<div class="header header-success">
 										<!-- Tabs with icons on Card -->
 										<div class="card card-nav-tabs">
-											<div class="col-sm-12 center-cropped img">
+											<div class="col-sm-12 center-cropped img" style="margin-bottom: 20px" >
 												<h4 style="text-align:center"><?php echo $row->judul ?></h4>
 												<img src="<?php echo base_url().$row->foto;?>" alt="Gambar Post" class="img-rounded img-responsive">
 											</div>
@@ -130,18 +131,17 @@
 												<p>
 													<?php
 														$string = strip_tags($row->body);
-														if (strlen($string) > 100) {
+														if (strlen($string) > 50) {
 															// truncate string
-															$stringCut = substr($string, 0, 100);
+															$stringCut = substr($string, 0, 50);
 															// make sure it ends in a word so assassinate doesn't become ass...
 															$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...';
 														}
 														echo $string;
 													?>
 												</p>
-											</div>
-											<div class="col-md-12 col-md-offset-3 col-sm-12 col-sm-offset-5 center">
-		                      <a class="btn" href="<?php echo base_url().'read/index/'.$row->id_post;?>">Read More</a>
+												<a class="btn col-md-12 col-md-offset-3 col-sm-12 col-sm-offset-5 center" href="<?php echo base_url().'read/index/'.$row->id_post;?>">Read More</a>
+
 											</div>
 										</div>
 
@@ -155,7 +155,6 @@
 
 						</div>
 					</div>
-				</div>
 				<!-- End Section Tabs -->
 
 				<div class="row sharing-area text-center">

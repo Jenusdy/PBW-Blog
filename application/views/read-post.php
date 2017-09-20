@@ -41,6 +41,8 @@
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
 					<h1 class="title text-center"><?php echo $row->judul ?></h1>
+					<h6 class="title text-center" style="margin: 2px" ><i class="fa fa-clock-o">  </i> <?php echo $row->create_at ?>  ||  <i class="fa fa-pencil"></i> Posted by  <?php echo $row->post_by ?>  ||   <i class="fa fa-eye"></i>  <?php echo $view ?> views</h6>
+
 				</div>
 			</div>
 		</div>
@@ -50,7 +52,6 @@
       <div class="container">
 				<div class="container">
 					<br><br><br>
-					<h6 class="text-left"><i class="fa fa-clock-o">  </i> <?php echo $row->create_at ?>  ||  <i class="fa fa-pencil"></i> Posted by  <?php echo $row->post_by ?>  ||   <i class="fa fa-eye"></i>  <?php echo $view ?> views</h6>
 					<?php echo $row->body; ?>
 				</div>
 	    </div>

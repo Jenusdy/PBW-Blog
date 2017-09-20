@@ -1,8 +1,43 @@
   <!--   Core JS Files   -->
-  <script>
-    CKEDITOR.replace('editor1');
-  </script>
   <script src="<?php echo base_url();?>assets/js/jquery.min.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function(){
+      $(".all").show();
+      $(".btn-all").click(function(){
+          $(".all").fadeIn();
+      });
+      $(".btn-python").click(function(){
+          $(".all").fadeOut();
+          $(".Python").fadeIn();
+      });
+      $(".btn-r").click(function(){
+          $(".all").fadeOut();
+          $(".R").fadeIn();
+      });
+      $(".btn-java").click(function(){
+          $(".all").fadeOut();
+          $(".Java").fadeIn();
+      });
+      $(".btn-c-plus-plus").click(function(){
+          $(".all").fadeOut();
+          $(".C++").fadeIn();
+      });
+      $(".btn-mysql").click(function(){
+          $(".all").fadeOut();
+          $(".MySQL").fadeIn();
+      });
+      $(".btn-blog").click(function(){
+          $(".all").fadeOut();
+          $(".Blog").fadeIn();
+      });
+      $(".btn-other").click(function(){
+          $(".all").fadeOut();
+          $(".Other").fadeIn();
+      });
+    });
+
+  </script>
+
   <script src="<?php echo base_url();?>assets/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="<?php echo base_url();?>assets/js/material.min.js"></script>
 

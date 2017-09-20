@@ -57,6 +57,23 @@
 					<div class="input-group">
 						<span class="input-group-addon">
 						</span>
+						Kategori
+						<select name="kategori">
+					    <option value="Python">Python</option>
+					    <option value="R">R</option>
+							<option value="Java">Java</option>
+							<option value="C++">C++</option>
+					    <option value="SPSS">SPSS</option
+							<option value="Statistika">Statistika</option>
+					    <option value="MySQL">MySQL</option>
+							<option value="Blog">Blog</option>
+							<option value="Other">Other</option>
+					  </select>
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">
+						</span>
 						<textarea id="editor1" name="body" type="text" class="form-control" placeholder="Isi..."></textarea>
 					</div>
 					<br>
@@ -90,5 +107,7 @@
 </footer>
 
 </body>
-
+<script>
+	CKEDITOR.replace('editor1');
+</script>
 <?php include('footer.php') ?>
