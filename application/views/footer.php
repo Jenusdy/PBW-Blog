@@ -34,6 +34,7 @@
           $(".all").fadeOut();
           $(".Other").fadeIn();
       });
+      $("#kode").hide();
     });
 
   </script>

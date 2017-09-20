@@ -9,7 +9,7 @@ class Post extends CI_Controller {
     $this->load->view('write-post');
 	}
 
-  public function write_post(){
+  public function write_post($id='1'){
       $config['upload_path']          = './uploads/';
       $config['allowed_types']        = 'gif|jpg|png';
       $config['max_size']             = '100000';
@@ -28,15 +28,29 @@ class Post extends CI_Controller {
 				$img = $this->upload->data();
 				$gambar = $img['file_name'];
 
-				$data['judul'] = $this->input->post('judul');
-				$data['body'] = $this->input->post('body');
-				$data['kategori'] = $this->input->post('kategori');
-				$data['create_at'] = date("Y-m-d h:i:sa");
-				$data['post_by'] = $this->session->userdata('nama');
-				$data['id_user'] = $this->session->userdata('id_user');
-				$data['foto'] = 'uploads/'.$gambar;
+				if($this->input->post('kode')==="new"){
+					$data['judul'] = $this->input->post('judul');
+					$data['body'] = $this->input->post('body');
+					$data['kategori'] = $this->input->post('kategori');
+					$data['create_at'] = date("Y-m-d h:i:sa");
+					$data['post_by'] = $this->session->userdata('nama');
+					$data['id_user'] = $this->session->userdata('id_user');
+					$data['foto'] = 'uploads/'.$gambar;
 
-				$this->db->insert('posts',$data);
+					$this->db->insert('posts',$data);
+				}else{
+
+					$info = $this->session->flashdata('url_foto');
+					unlink($info);
+					$data['judul'] = $this->input->post('judul');
+					$data['body'] = $this->input->post('body');
+					$data['kategori'] = $this->input->post('kategori');
+					$data['foto'] = 'uploads/'.$gambar;
+
+					$this->db->where('id_post', $id);
+			    $this->db->update('posts', $data);
+				}
+
 				redirect('home');
       }
   }

@@ -49,6 +49,11 @@
 							if(!empty($this->session->userdata('email'))){
 						?>
 								<li>
+									<a rel="tooltip" title="Admin Panel" data-placement="bottom" href="<?php echo base_url();?>admin/" class="btn btn-white btn-simple btn-just-icon">
+										<i class="fa fa-bar-chart"></i>
+									</a>
+								</li>
+								<li>
 									<a rel="tooltip" title="Write a Post" data-placement="bottom" href="<?php echo base_url();?>post" class="btn btn-white btn-simple btn-just-icon">
 										<i class="fa fa-pencil"></i>
 									</a>
@@ -60,7 +65,16 @@
 								</li>
 
 						<?php
-							}
+						}else{
+							?>
+							<li>
+								<a rel="tooltip" title="Log In" data-placement="bottom" href="<?php echo base_url();?>login/" class="btn btn-white btn-simple btn-just-icon">
+									<i class="fa fa-user"></i>
+								</a>
+							</li>
+
+							<?php
+						}
 						?>
 
 
@@ -158,7 +172,7 @@
 				<!-- End Section Tabs -->
 
 				<div class="row sharing-area text-center">
-		      <h3>Thank you for supporting us!</h3>
+		      <h3>Thank you for supporting me!</h3>
 					<a href="#" class="btn btn-github">
 		          <i class="fa fa-github"></i>
 		      	Star

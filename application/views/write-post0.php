@@ -42,17 +42,20 @@
 		</div>
 	</div>
 
+<?php
+	foreach ($data->result() as $row) {
+?>
 	<div class="main main-raised">
 		<div class="section">
-			<?php echo form_open_multipart('post/write_post') ?>
+			<?php echo form_open_multipart('post/write_post/'.$row->id_post) ?>
 
 				<div class="form content">
 
 					<div class="input-group">
 						<span class="input-group-addon">
 						</span>
-						<input id="judul" name="judul" type="text" class="form-control" placeholder="Judul...">
-						<input id="kode" name="kode" type="text" value="new" class="form-control" placeholder="Judul..." readonly>
+						<input id="judul" name="judul" type="text" value="<?php echo $row->judul; ?>" class="form-control" placeholder="Judul...">
+						<input id="kode" name="kode" type="text" value="edit" class="form-control" placeholder="Judul..."readonly>
 					</div>
 
 					<div class="input-group">
@@ -75,7 +78,7 @@
 					<div class="input-group">
 						<span class="input-group-addon">
 						</span>
-						<textarea id="editor1" name="body" type="text" class="form-control" placeholder="Isi..."></textarea>
+						<textarea id="editor1" name="body" type="text" class="form-control" placeholder="Isi..."><?php echo $row->body; ?></textarea>
 					</div>
 					<br>
 
@@ -89,14 +92,19 @@
 						<button href="#pablo" type="submit" class="btn btn-simple btn-primary btn-lg" style="background-color:rgba(124, 120, 118, 0.71)">Post</button>
 					</div>
 
+					<?php
+					$this->session->set_flashdata('url_foto', $row->foto);
+					//Redirect kehalaman login
+					?>
+
 				</div>
-
 				<?php echo form_close(); ?>
-
-
-
     </div>
 	</div>
+
+<?php
+	}
+?>
 </div>
 
 <footer class="footer footer-transparent">
